@@ -25,13 +25,18 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ePA-aw-SUL">
                                 <rect key="frame" x="66.5" y="150" width="187" height="30"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ppq-yM-Qgn">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ppq-yM-Qgn">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="31o-X9-6J4"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <connections>
+                                            <action selector="doneKeyPressed:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="BM4-Qd-eYy"/>
+                                            <action selector="doneKeyPressed:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="xKJ-nH-G0s"/>
+                                            <action selector="guessLetterFieldChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="xu5-Il-rb6"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NqL-le-AV6">
                                         <rect key="frame" x="42" y="0.0" width="145" height="30"/>
@@ -39,6 +44,9 @@
                                             <constraint firstAttribute="width" constant="145" id="Nce-Vv-cHY"/>
                                         </constraints>
                                         <state key="normal" title="Guess This Letter"/>
+                                        <connections>
+                                            <action selector="guessLetterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l48-Ft-7mc"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -57,6 +65,9 @@
                                 <rect key="frame" x="103" y="269" width="115" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Play Again"/>
+                                <connections>
+                                    <action selector="playAgainButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rk9-rN-iAf"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="_ _ _ _ _" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7b-do-vQz">
                                 <rect key="frame" x="16" y="121" width="288" height="21"/>
@@ -73,6 +84,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="flowerImageView" destination="q0r-7O-XGJ" id="tms-VK-CkO"/>
+                        <outlet property="guessCountLabel" destination="PzZ-bu-pCN" id="F0V-db-LKh"/>
+                        <outlet property="guessLetterButton" destination="NqL-le-AV6" id="DBE-iy-MKU"/>
+                        <outlet property="guessedLetterField" destination="Ppq-yM-Qgn" id="mYY-Lt-9W9"/>
+                        <outlet property="playAgainButton" destination="hLz-wV-S6K" id="2GH-HU-tdr"/>
+                        <outlet property="userGuessLabel" destination="A7b-do-vQz" id="FNV-3J-eYu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
